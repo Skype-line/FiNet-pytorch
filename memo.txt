@@ -1,0 +1,33 @@
+Finet_v3
+
+Exp1(stage2):
+在Finet基础上增加Discriminator，增加GAN loss
+Generator和Encoder都仿照pluralistic Inpainting的网络架构，G网络参数数从96M降到3M，E网络从41M降到小于1M
+
+Exp2(stage2):
+zn = distribution_norm.sample() --> zn = distribution_norm.rsample()
+
+Exp3(stage2):
+Generator+Discriminiator:use_attn=True --> use_attn=False 提升质量？
+
+Exp4(stage2):
+top --> 4 types
+
+Exp5
+(stage1):
+在Finet基础上Generator和Encoder都仿照pluralistic Inpainting的网络架构，G网络参数数从96?M降到3M，E网络从41M降到小于1M
+(stage2):
+Generator+Discriminiator+Encoder: use_spect=True --> use_spect=False 稳定GAN训练？
+
+Exp6(stage2):
+opt.output_scale=4 --> opt.output_scale=1 提升质量？
+
+Exp7(stage2):
+add condition to the discriminator
+modify:   models.py: Create_nets() netD  = Discriminator(stage=opt.stage, input_nc=11!!!!, use_attn=True, use_spect=True)
+		  train.py: train_stage2() netD(xx) --> netD(xx,z=zi.detach()) line 200-217 \ 237-253
+
+Exp8(stage2):
+modify appearance loss from L1 loss --> vgg loss(=Finet)
+		output_scale from 4 --> 1
+since cuda memory is limited : batch size from 16 --> 8

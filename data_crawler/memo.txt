@@ -1,0 +1,17 @@
+'run!
+输入：./run.sh
+
+line30测试→line29实际运行
+line62 Url_list实际运行去掉[0:5]
+
+
+json文件内容解释：
+link_url：该服装页面链接
+dir_name：保存文件夹路径（区分类别）
+product_desc：该服装产品描述
+product_imgname：该服装各角度展示图片保存名称
+outfit_desc：配套服装产品描述
+outfit_imgname：整体+配套服装图片名称（第一个为整体图片）
+image_urls：所有图片的下载链接（包括各角度展示图片、整体+配套服装图片）
+image_paths：所有图片保存路径
+
